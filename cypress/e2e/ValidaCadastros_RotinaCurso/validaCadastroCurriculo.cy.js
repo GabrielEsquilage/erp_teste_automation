@@ -16,6 +16,14 @@ describe('Valida Cadastro de Curriculo', () => {
 
 
         cy.wait(2500);
+
+        cy.get('input[placeholder="Escreva o nome do currículo..."]')
+            .should('be.visible')
+            .type('Matriz Engenharia da Computação');
+
+        cy.get('input[placeholder="Escreva o código do currículo..."]')
+            .should('be.visible')
+            .type('M_ENGCOMP');
     });
 });
 
