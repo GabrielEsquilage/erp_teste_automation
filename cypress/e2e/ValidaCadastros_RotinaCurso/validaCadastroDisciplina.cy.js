@@ -19,15 +19,15 @@ describe('Valida Cadastro de Curriculo', () => {
 
         cy.get('input[placeholder="Nome da disciplina"]')
             .should('be.visible')
-            .type('Matriz Engenharia da Computação');
+            .type('Fundamentos de Engenharia da Computação');
 
         cy.get('input[placeholder="Código da disciplina"]')
             .should('be.visible')
-            .type('MaENGCOMP1');
+            .type('FUNENGCOMP');
 
         cy.get('input[placeholder="Código no Moodle"]')
             .should('be.visible')
-            .type('1234581');
+            .type('25262');
 
         cy.get('input[placeholder="Carga horária"]')
             .should('be.visible')
