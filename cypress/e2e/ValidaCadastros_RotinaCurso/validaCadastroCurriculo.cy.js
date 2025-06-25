@@ -19,11 +19,11 @@ describe('Valida Cadastro de Curriculo', () => {
 
         cy.get('input[placeholder="Escreva o nome do currículo..."]')
             .should('be.visible')
-            .type('Matriz Engenharia da Computação');
+            .type('Matriz Engenharia da Computação_2');
 
         cy.get('input[placeholder="Escreva o código do currículo..."]')
             .should('be.visible')
-            .type('M_ENGCOMP');
+            .type('M_ENGCOMP_2');
 
 
         cy.contains('label', 'Nível de Ensino')
@@ -86,7 +86,30 @@ describe('Valida Cadastro de Curriculo', () => {
         // Seleciona a opção (ajuste a tag se não for span)
         cy.contains('div', 'Regular').click();
 
-        cy.wait(5000)
+        cy.contains('label', 'Classificação*')
+            .parent()
+            .within(() => {
+                cy.get('input').click();
+            });
+
+        // Seleciona a opção (ajuste a tag se não for span)
+        cy.contains('div', 'Padrão').click();
+
+
+        cy.contains('label', 'Total de Créditos')
+            .parent()
+            .within(() => {
+                cy.get('input').type('100');
+            });
+
+        cy.contains('label', 'Nota Mínima para Aprovação (%)*')
+            .parent()
+            .within(() => {
+                cy.get('input').type('60');
+            });
+
+
+        cy.wait((500))
         cy.contains('label', 'Tipo da Nota*')
             .parent()
             .within(() => {
@@ -96,42 +119,36 @@ describe('Valida Cadastro de Curriculo', () => {
         // Seleciona a opção (ajuste a tag se não for span)
         cy.contains('div', 'Média').click();
 
-        cy.wait(5000)
-        cy.contains('label', 'Total de Créditos')
-            .parent()
-            .within(() => {
-                cy.get('input').type('100');
-            });
 
-        cy.wait(5000)
+        cy.wait((500))
         cy.contains('label', 'Nota Mínima para Aprovação (%)*')
             .parent()
             .within(() => {
                 cy.get('input').type('60');
             });
 
-        cy.wait(5000)
+        cy.wait((500))
         cy.contains('label', 'Valor da Disciplina')
             .parent()
             .within(() => {
                 cy.get('input').type('6000');
             });
 
-        cy.wait(5000)
+        cy.wait((500))
         cy.contains('label', 'Observação')
             .parent()
             .within(() => {
                 cy.get('textarea').type('teste teste teste teste teste');
             });
 
-        cy.wait(5000)
+        cy.wait((500))
         cy.contains('label', 'Nota?*')
             .parent()
             .within(() => {
                 cy.contains('div', 'Sim').click();
             });
 
-        cy.wait(5000)
+        cy.wait((500))
 
         cy.contains('button', 'Avançar').click();
 
