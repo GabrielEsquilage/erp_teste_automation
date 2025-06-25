@@ -24,7 +24,7 @@ describe('Valida Cadastro de Curso', () => {
     //
     cy.get('input[placeholder="Digite o código do curso...')
       .should('be.visible')
-      .type('ENGCOMP')
+      .type('ENGCOMP_2')
     //
     cy.contains('label', 'Nível de Ensino')
       .parent() // sobe para o container do campo- teste (deu certo, replicar para proximos)

@@ -19,11 +19,11 @@ describe('Valida Cadastro de Curriculo', () => {
 
         cy.get('input[placeholder="Escreva o nome do currículo..."]')
             .should('be.visible')
-            .type('Matriz Engenharia da Computação_2');
+            .type('Matriz Engenharia da Computação_3');
 
         cy.get('input[placeholder="Escreva o código do currículo..."]')
             .should('be.visible')
-            .type('M_ENGCOMP_2');
+            .type('M_ENGC');
 
 
         cy.contains('label', 'Nível de Ensino')
