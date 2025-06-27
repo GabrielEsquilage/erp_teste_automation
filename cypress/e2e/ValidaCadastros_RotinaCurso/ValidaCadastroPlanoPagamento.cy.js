@@ -49,7 +49,22 @@ describe('Valida Cadastro de Curriculo', () => {
 
         cy.contains('button', 'Avançar').click()
 
-        cy.contains('.gap-10 > .bg-brand-orange', 'Selecionar currículos').click();
+//step4
+
+        cy.intercept('GET', '**/api/v1/curriculo*').as('getCurriculos');
+
+
+        cy.wait(7000)
+        cy.contains('button', 'Selecionar currículos', { timeout: 10000 }).click();
+        cy.wait('@getCurriculos').its('response.statusCode').should('eq', 200);
+        cy.wait(7000)
+
+
+
+        //cy.contains('button', 'Avançar').click()
+
+        //cy.wait(500); // Espera breve para evitar conflitos com transições
+
     });
 });
 
