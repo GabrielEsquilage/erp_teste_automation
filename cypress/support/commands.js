@@ -23,3 +23,20 @@ Cypress.Commands.add('loginERP', (usuario, senha) => {
 
   });
 });
+
+//função step 4 cadastro plano de pagamento
+
+Cypress.Commands.add('clickAndWaitResponse', (buttonText, alias, validateFn) => {
+  cy.contains('button', buttonText).click();
+
+  cy.wait(`@${alias}`).then((interception) => {
+    const { statusCode, body } = interception.response;
+
+    expect(statusCode).to.eq(200);
+
+    if (validateFn) {
+      validateFn(body); //realiza verificação costumizada, caso precise
+    }
+  });
+});
+

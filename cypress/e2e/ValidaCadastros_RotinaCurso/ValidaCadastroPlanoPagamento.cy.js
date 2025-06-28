@@ -51,20 +51,25 @@ describe('Valida Cadastro de Curriculo', () => {
 
 //step4
 
-        cy.intercept('GET', '**/api/v1/curriculo*').as('getCurriculos');
 
+        cy.contains('button', 'Selecionar currículos').click({ force: true });
 
-        cy.wait(7000)
-        cy.contains('button', 'Selecionar currículos', { timeout: 10000 }).click();
-        cy.wait('@getCurriculos').its('response.statusCode').should('eq', 200);
-        cy.wait(7000)
+//volta pra step 4 com os curriculos carregados
 
+        cy.contains('button', 'Voltar').click()
 
+// na step 4, pesquisa curriculo
+        
+        cy.get('.size-full > .flex-col.items-center > .flex-col > :nth-child(1) > .flex').type('Matriz Engenharia da Computação_3')
+        cy.contains('div', 'Matriz engenharia da computação_3',{ timeout: 5000 }).click();
 
-        //cy.contains('button', 'Avançar').click()
+        cy.contains('button', 'Avançar').click()
 
-        //cy.wait(500); // Espera breve para evitar conflitos com transições
+// step 5, conclui com um curriculo selecionado para o plano de pagamento
+
+        cy.contains('button', 'Concluir').click()
 
     });
 });
+
 
