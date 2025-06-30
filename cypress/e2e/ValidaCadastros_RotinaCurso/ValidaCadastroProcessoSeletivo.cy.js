@@ -21,11 +21,11 @@ describe('Valida Cadastro de Curriculo', () => {
 
         cy.get('input[placeholder="Escreva o nome do Processo Seletivo..."]')
             .should('be.visible')
-            .type('PS POS 2025.8_teste_teste');
+            .type('PS POS 2025.9_teste_teste');
 
         cy.get('input[placeholder="Código do Processo..."]')
             .should('be.visible')
-            .type('PPOS25_8_');
+            .type('PPOS25_8__');
 
         cy.contains('label', 'Período Letivo*')
             .parent() // sobe para o container do campo- teste (deu certo, replicar para proximos)
@@ -51,7 +51,7 @@ describe('Valida Cadastro de Curriculo', () => {
 
         cy.get('input[placeholder="Escreva o nome do Concurso..."]')
             .should('be.visible')
-            .type('2025_Vestibular_07');
+            .type('2025_Vestibular_07_');
 
         cy.get('input[name="inicioConcurso"]').type('2025-07-01');
 
