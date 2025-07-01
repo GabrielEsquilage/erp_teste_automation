@@ -1,4 +1,4 @@
-describe('Valida Cadastro de Curriculo', () => {
+describe('Valida Cadastro de Plano de Pagamento', () => {
     before(() => {
         cy.loginERP('admin', '7Y/6p0p\\iYd{');
     });
@@ -19,11 +19,11 @@ describe('Valida Cadastro de Curriculo', () => {
 
         cy.get('input[placeholder="Escreva o nome do plano..."]')
             .should('be.visible')
-            .type('Plano Pós 25x');
+            .type('Plano Pós 25zzz');
 
         cy.get('input[placeholder="Crie um código..."]')
             .should('be.visible')
-            .type('PPOS25X');
+            .type('PPOS25_Z');
 
         cy.get('#wizard-form-0 > .flex-col > :nth-child(2) > .flex').type('25')
 

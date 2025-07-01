@@ -1,4 +1,4 @@
-describe('Valida Cadastro de Curriculo', () => {
+describe('Valida Cadastro de Disciplina', () => {
     before(() => {
         cy.loginERP('admin', '7Y/6p0p\\iYd{');
     });
@@ -19,15 +19,15 @@ describe('Valida Cadastro de Curriculo', () => {
 
         cy.get('input[placeholder="Nome da disciplina"]')
             .should('be.visible')
-            .type('Fundamentos de Engenharia da Computação 2');
+            .type('Fundamentos de Engenharia da Computação4_');
 
         cy.get('input[placeholder="Código da disciplina"]')
             .should('be.visible')
-            .type('FUNENGCOMP2');
+            .type('FUNENGCOMP_213');
 
         cy.get('input[placeholder="Código no Moodle"]')
             .should('be.visible')
-            .type('25263');
+            .type('26262');
 
         cy.get('input[placeholder="Carga horária"]')
             .should('be.visible')
