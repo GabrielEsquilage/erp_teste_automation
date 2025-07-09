@@ -21,11 +21,19 @@ describe('Valida Cadastro de Processo Seletivo', () => {
 
         cy.get('input[placeholder="Escreva o nome do Processo Seletivo..."]')
             .should('be.visible')
-            .type('PS POS 2025.9_g');
+            .type('PS POS 2025.13');
+
+        cy.contains('label', 'Nível de Ensino*')
+            .parent() // sobe para o container do campo- teste (deu certo, replicar para proximos)
+            .within(() => {
+               cy.get('input[placeholder="Selecione"]').click(); // clica no input correto dentro do grupo - teste (deu certo, replicar para proximos)
+            });
+        cy.contains('span', 'Pós-Graduação').click();
+          
 
         cy.get('input[placeholder="Código do Processo..."]')
             .should('be.visible')
-            .type('PPOS25_4');
+            .type('PPOS25_13');
 
         cy.contains('label', 'Período Letivo*')
             .parent() // sobe para o container do campo- teste (deu certo, replicar para proximos)
@@ -51,7 +59,7 @@ describe('Valida Cadastro de Processo Seletivo', () => {
 
         cy.get('input[placeholder="Escreva o nome do Concurso..."]')
             .should('be.visible')
-            .type('2025_Vestibular_07_2');
+            .type('2025_Vestibular_0720');
 
         cy.get('input[name="inicioConcurso"]').type('2025-07-01');
 
@@ -61,10 +69,9 @@ describe('Valida Cadastro de Processo Seletivo', () => {
 
 //step2 - criação concurso -> Relativo as provas
 
-        cy.contains('label', 'Tipo de classificação*')
+        cy.contains('label', 'Tipo de Concurso*')
             .parent()
-            .find('select')
-            .select('3');
+            .click()
 
         cy.contains('button', 'Avançar').click()
 
@@ -80,17 +87,18 @@ describe('Valida Cadastro de Processo Seletivo', () => {
         cy.contains('button', 'Avançar').click();
 
 //step 4 - seleciona cursos para o concurso
-
-        cy.contains('span', 'Selecionar todos')
-            .prev('div') // pega o <div> anterior (o "checkbox")
-            .click();
+        cy.get('.flex.font-semibold > .flex > .my-auto').click()
+        //cy.contains('div', 'Selecionar todos')
+          //  .prev('div') // pega o <div> anterior (o "checkbox")
+            //.click();
         
         cy.wait(10000);
 
         cy.contains('button', 'Avançar').click();
 
 //step 5 - Seleciona filiais
-
+        
+        
         cy.contains('span', 'Selecionar todas as filiais')
             .prev('div') // pega o <div> anterior (o "checkbox")
             .click();
@@ -118,9 +126,11 @@ describe('Valida Cadastro de Processo Seletivo', () => {
 
         cy.contains('button', 'Concluir').click();
 
-//decide se quer ou não sincronizar com moodle - para teste, selecionar Agora não
 
-        cy.contains('button', 'Agora não').click();
+
+        cy.contains('button', 'Concluir').click();
+
+//decide se quer ou não sincronizar com moodle - para teste, selecionar Agora não
 
     });
 });        

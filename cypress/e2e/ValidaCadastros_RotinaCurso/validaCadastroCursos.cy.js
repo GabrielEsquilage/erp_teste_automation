@@ -20,19 +20,19 @@ describe('Valida Cadastro de Curso', () => {
 
     cy.get('input[placeholder="Digite o nome do curso..."]')
       .should('be.visible')
-      .type('Engenharia da Computação__11');
+      .type('Engenharia da Computação__21');
     //
     cy.get('input[placeholder="Digite o código do curso...')
       .should('be.visible')
-      .type('_ENGCOMP1011')
+      .type('_ENGCOMP200')
     //
     cy.contains('label', 'Nível de Ensino')
       .parent() // sobe para o container do campo- teste (deu certo, replicar para proximos)
       .within(() => {
-        cy.get('input').click(); // clica no input correto dentro do grupo - teste (deu certo, replicar para proximos)
+        cy.contains('div', 'Selecione uma opção').click(); // clica no input correto dentro do grupo - teste (deu certo, replicar para proximos)
       });
 
-    cy.contains('span', 'Pós-Graduação').click(); // seleciona a opção - teste (deu certo, replicar para proximos)
+    cy.contains('div', 'Pós-Graduação').click(); // seleciona a opção - teste (deu certo, replicar para proximos)
     //
 
     // 1. Localiza o campo "Tipo de Curso"
@@ -53,20 +53,20 @@ describe('Valida Cadastro de Curso', () => {
     cy.contains('label', 'Área de Conhecimento')
       .parent() // sobe para o container do campo- teste (deu certo, replicar para proximos)
       .within(() => {
-        cy.get('input').click(); // clica no input correto dentro do grupo - teste (deu certo, replicar para proximos)
+        cy.contains('p', 'Selecione uma opção').click(); // clica no input correto dentro do grupo - teste (deu certo, replicar para proximos)
       });
 
-    cy.contains('span', 'Ciências da Saúde').click(); // seleciona a opção - teste (deu certo, replicar para proximos)
+    cy.contains('div', 'Ciências da Saúde').click(); // seleciona a opção - teste (deu certo, replicar para proximos)
 
     //seleciona modalidade
 
     cy.contains('label', 'Modalidade')
       .parent() // sobe para o container do campo- teste (deu certo, replicar para proximos)
       .within(() => {
-        cy.get('input').click(); // clica no input correto dentro do grupo - teste (deu certo, replicar para proximos)
+        cy.contains('div', 'Selecione uma opção').click(); // clica no input correto dentro do grupo - teste (deu certo, replicar para proximos)
       });
 
-    cy.contains('span', 'Ambas').click(); // seleciona a opção - teste (deu certo, replicar para proximos)
+    cy.contains('div', 'Ambas').click(); // seleciona a opção - teste (deu certo, replicar para proximos)
 
     //cadastra codigo inep, hab masc, hab fem
 
