@@ -1,6 +1,6 @@
 describe('Valida Cadastro de Processo Seletivo', () => {
     it('valida o Lp Pos=graduação', () => {
-        cy.visit('https://matriculapos.fatecie.edu.br/inscription')
+        cy.visit('https://matriculapos.dev.fatecie.edu.br/inscription')
         
 
         cy.get('input[placeholder="Digite o seu nome"]')
@@ -54,7 +54,7 @@ describe('Valida Cadastro de Processo Seletivo', () => {
 
         cy.get('#«rd»-form-item').click()
 
-        cy.get('[data-value="ESPECIALIZAÇÃO EM AGRICULTURA E MANEJO SUSTENTÁVEL"]').click();
+        cy.get('[data-value="ESPECIALIZAÇÃO EM ENFERMAGEM DO TRABALHO"]').click();
 
         cy.contains('label', 'Estado *')
             .parent() // sobe para o container do campo- teste (deu certo, replicar para proximos)
@@ -62,7 +62,7 @@ describe('Valida Cadastro de Processo Seletivo', () => {
         cy.contains('div', 'Selecione um Estado').click();
         })
 
-        cy.contains('div', 'Acre').click()
+        cy.contains('div', 'Paraná').click()
 
 //--------------------------------------//        
 
@@ -72,7 +72,7 @@ describe('Valida Cadastro de Processo Seletivo', () => {
         cy.contains('div', 'Selecione uma cidade').click();
         })
 
-        cy.contains('div', 'Acrelândia').click()
+        cy.contains('div', 'Maringá').click()
 
 //--------------------------------------//
 
@@ -82,7 +82,7 @@ describe('Valida Cadastro de Processo Seletivo', () => {
         cy.contains('div', 'Selecione um Polo').click();
         })
 
-        cy.contains('div', 'ACRELÂNDIA - AC').click()
+        cy.contains('div', 'MARINGÁ (Centro), - PR').click()
 
 //--------------------------------------//
 
@@ -112,6 +112,11 @@ describe('Valida Cadastro de Processo Seletivo', () => {
 
             cy.wait(1500)
         //cy.get('.ml-auto').click()
+
+         cy.contains('button', 'Enviar').click()
+
+
+         cy.contains('button', 'fechar').click()
 
     })    
 });        
